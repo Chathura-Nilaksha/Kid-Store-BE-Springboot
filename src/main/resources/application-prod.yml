@@ -1,0 +1,14 @@
+server:
+  port: 8073
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/kid_toys
+    username: root
+    password: 12345
+  #      //CHANGE -this to frank sir---->url
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true

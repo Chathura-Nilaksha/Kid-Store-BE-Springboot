@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6275fff9-9c96-4196-ba21-1d17b83b9bb1" name="Changes" comment="Prepared .yml files to different environments">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dtoOutgoing/PreviousOrdersData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/CartItemsListEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/CustomerAndOrderDataEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/CardDataRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/CartItemsListRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/CartItemsRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/CustomerAndOrderDataRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/OrderBillingAddressDataRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/OrderShippingAddressDataRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/CartItemListRepositoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/CustomerRepositoryTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Chathura-Nilaksha&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="1990df5b-ae2d-4f87-80cd-abad97486fdb" />
+        <option name="url" value="https://github.com/Chathura-Nilaksha/clothify-store-be-microser-customer-details.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2eDNJmQ6i9b9fRckxccNUlxo8RC" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/1.SE/1--FRANK sir-Final-dd-/BE/customer-details&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.example.repository" />
+      <recent name="org.example.entity" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean and install" />
+      <command value="mvn clean" />
+      <command value="mvn install" />
+      <command value="mvn clean install" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-18" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
+      <module name="CW-customer-details" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CartItemListRepositoryTest.getAllCartItemsListWithCartItems" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CW-customer-details" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.CartItemListRepositoryTest" />
+      <option name="METHOD_NAME" value="getAllCartItemsListWithCartItems" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CartItemListRepositoryTest.saveCartItemListWithCartItemsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CW-customer-details" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.CartItemListRepositoryTest" />
+      <option name="METHOD_NAME" value="saveCartItemListWithCartItemsTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CustomerRepositoryTest.saveCustomerEntity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CW-customer-details" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.CustomerRepositoryTest" />
+      <option name="METHOD_NAME" value="saveCustomerEntity" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.CustomerRepositoryTest.saveCustomerEntity" />
+        <item itemvalue="JUnit.CartItemListRepositoryTest.saveCartItemListWithCartItemsTest" />
+        <item itemvalue="JUnit.CartItemListRepositoryTest.getAllCartItemsListWithCartItems" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6275fff9-9c96-4196-ba21-1d17b83b9bb1" name="Changes" comment="" />
+      <created>1711435119596</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1711435119596</updated>
+      <workItem from="1714914477440" duration="6716000" />
+    </task>
+    <task id="LOCAL-00001" summary="Initial comment">
+      <option name="closed" value="true" />
+      <created>1711436264997</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1711436264997</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Prepared CustomerDto">
+      <option name="closed" value="true" />
+      <created>1711441489225</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1711441489225</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Prepared folder structure and details">
+      <option name="closed" value="true" />
+      <created>1714028233111</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1714028233111</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Prepared Customer details saving function">
+      <option name="closed" value="true" />
+      <created>1714031680423</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1714031680423</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Developed Login validation function">
+      <option name="closed" value="true" />
+      <created>1714563488192</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1714563488192</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Developed OrderDto &amp; OrderEntity">
+      <option name="closed" value="true" />
+      <created>1714918931020</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1714918931020</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Developed OrderDto &amp; OrderEntity">
+      <option name="closed" value="true" />
+      <created>1714923180619</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1714923180619</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Developed login Class">
+      <option name="closed" value="true" />
+      <created>1715502800222</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1715502800222</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Developed login Class">
+      <option name="closed" value="true" />
+      <created>1715510882826</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1715510882826</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Developed loginserviceimpl">
+      <option name="closed" value="true" />
+      <created>1715527968765</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1715527968765</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Developed login class components">
+      <option name="closed" value="true" />
+      <created>1715530023992</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1715530023992</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Developed login class-change password function">
+      <option name="closed" value="true" />
+      <created>1715583867382</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1715583867382</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Developed login class-change password function-error corrected">
+      <option name="closed" value="true" />
+      <created>1715584978679</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1715584978679</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Prepared .yml files to different environments">
+      <option name="closed" value="true" />
+      <created>1716134571233</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1716134571233</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial comment" />
+    <MESSAGE value="Prepared CustomerDto" />
+    <MESSAGE value="Prepared folder structure and details" />
+    <MESSAGE value="Prepared Customer details saving function" />
+    <MESSAGE value="Developed Login validation function" />
+    <MESSAGE value="Developed OrderDto &amp; OrderEntity" />
+    <MESSAGE value="Developed login Class" />
+    <MESSAGE value="Developed loginserviceimpl" />
+    <MESSAGE value="Developed login class components" />
+    <MESSAGE value="Developed login class-change password function" />
+    <MESSAGE value="Developed login class-change password function-error corrected" />
+    <MESSAGE value="Prepared .yml files to different environments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Prepared .yml files to different environments" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
