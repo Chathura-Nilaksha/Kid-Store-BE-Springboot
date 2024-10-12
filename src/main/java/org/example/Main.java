@@ -22,6 +22,12 @@ public class Main {
     }
 }
 
+//10.6-------------------------------------------------
+//Made Native repository for practising purpose-Not Completed
+//for Class CustomerNativeRepositoryImpl & interface CustomerNativeRepository
+//Still pending 9.27 error.check after unit testing the error service layer after above
+
+
 //9.27--------------------------------------------------
 // Still have that problem
 //org.hibernate.query.QueryTypeMismatchException:
