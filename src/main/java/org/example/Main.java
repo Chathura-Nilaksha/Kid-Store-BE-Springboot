@@ -25,6 +25,7 @@ public class Main {
 //10.11-------------------------------------------------
 //Made Native repository for practising purpose---Completed
 //for Class CustomerNativeRepositoryImpl & interface CustomerNativeRepository
+//made method--public Optional<CustomerEntity> findCustomerAllDetailsByEmail(String email)-completed
 //Still pending 9.27 error.check after unit testing the error service layer after above
 
 

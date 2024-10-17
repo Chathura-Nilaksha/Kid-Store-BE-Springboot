@@ -1,19 +1,16 @@
 package org.example.repository.Native.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.example.entity.CustomerEntity;
 import org.example.repository.Native.CustomerNativeRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.ResultSetExtractor;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Repository
@@ -24,13 +21,29 @@ public class CustomerNativeRepositoryImpl implements CustomerNativeRepository {
 
     public Integer findCustomerCodeByEmail(String email){
         try {
-            String sql = "select customerCode from CustomerTable where email=:email2";
+            String sql = "select customerCode from CustomerEntity where email=:email2";
             Map<String, Object> params = new HashMap<>();
             params.put("email2", email);
 
             return namedParameterJdbcTemplate.queryForObject(sql, params, Integer.class);
         }catch (DataAccessException ex){
             return null;
+        }
+    }
+
+    @Override
+    public Optional<CustomerEntity> findCustomerAllDetailsByEmail(String email) {
+        try {
+            String sql = "select * from CustomerEntity where email=:email3";
+            // Collections.singletonMap("email3", email); or below Map and params.
+            Map<String, Object> params = new HashMap<>();
+            params.put("email3", email);
+            CustomerEntity customerEntity = namedParameterJdbcTemplate
+                                                    .queryForObject(sql, params, CustomerEntity.class);
+
+            return Optional.ofNullable(customerEntity);
+        }catch (DataAccessException ex){
+            return Optional.empty();
         }
     }
 }
