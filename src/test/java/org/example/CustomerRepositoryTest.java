@@ -14,7 +14,7 @@ public class CustomerRepositoryTest {
     @Autowired
     CustomerRepository customerRepository;
     @Test
-    public void saveCustomerEntity(){
+    void saveCustomerEntity(){
         CustomerEntity customerEntity = new CustomerEntity();
         customerEntity.setCustomerCode(1);
         customerEntity.setEmail("cnilaksha@gmail.com");

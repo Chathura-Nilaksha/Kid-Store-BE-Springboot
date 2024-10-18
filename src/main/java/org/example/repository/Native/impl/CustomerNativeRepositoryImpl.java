@@ -2,6 +2,7 @@ package org.example.repository.Native.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.example.entity.CustomerEntity;
+import org.example.exeptions.EmailNotExisting;
 import org.example.repository.Native.CustomerNativeRepository;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -27,7 +28,7 @@ public class CustomerNativeRepositoryImpl implements CustomerNativeRepository {
 
             return namedParameterJdbcTemplate.queryForObject(sql, params, Integer.class);
         }catch (DataAccessException ex){
-            return null;
+            throw new EmailNotExisting("Email address isn't of a registered customer");
         }
     }
 
