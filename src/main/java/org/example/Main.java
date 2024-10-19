@@ -21,10 +21,16 @@ public class Main {
         SpringApplication.run(Main.class);
     }
 }
+
+//10.19-----------------------------------------------
+//Test class for CustomerServiceImplTest-->saveCustomer()-CHECK,TEST-CH & DOC WHETHER OK OR NOT.
+//Still pending 9.27 error.check after unit testing the error service layer after above
+
+
 //10.18-----------------------------------------------
 //Applied that EmailNotExisting class to my CustomerNativeRepositoryImpl class
-//Prepare Test class for CustomerServiceImplTest-->saveCustomer().
-
+//Prepare Test class for CustomerServiceImplTest-->saveCustomer()-NOT Completed.
+//Still pending 9.27 error.check after unit testing the error service layer after above
 
 //10.17------------------------------------------------
 //Made EmailNotExisting class-Completed
