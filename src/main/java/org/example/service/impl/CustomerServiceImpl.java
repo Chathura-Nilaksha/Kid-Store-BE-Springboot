@@ -24,7 +24,8 @@ public class CustomerServiceImpl implements CustomerService { //this error came 
     ModelMapper modelMapper;
     @Override
     public ResponseEntity<String> saveCustomerDetails(CustomerDto customerDto) {
-        customerRepository.save(modelMapper.map(customerDto, CustomerEntity.class));
+        CustomerEntity savedCustomerEntity = customerRepository.
+                                                save(modelMapper.map(customerDto, CustomerEntity.class));
         return ResponseEntity.ok("Details saved. Thank You.");
     }
 }

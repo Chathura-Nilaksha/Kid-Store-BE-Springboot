@@ -11,6 +11,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.stubbing.OngoingStubbing;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,18 +21,20 @@ import static org.mockito.Mockito.when;
 
 @SpringBootTest
 @Slf4j
-@ExtendWith(MockitoExtension.class)
+@ExtendWith(MockitoExtension.class) // This to enable Mockito in this test class
 class CustomerServiceImplTest {
     @Mock           //class that needs to attach a bean.
-    CustomerRepository customerRepository;
-    @InjectMocks    //Bean for above @Mock bean existing class.
-    CustomerServiceImpl customerServiceImpl;
+    private CustomerRepository customerRepository;
+    //Injects the mock repository into the CustomerServiceImpl,
+    // allowing to test the service without needing a real repository.
+    @InjectMocks    //Bean for above '@Mock bean' including class.
+    private CustomerServiceImpl customerServiceImpl;
     @Autowired
-    ModelMapper modelMapper;
+    private ModelMapper modelMapper;
 
     @Test
     // Check below from-c
-    void CustomerServiceImpl_SaveCustomerDetails_ReturnsResponseEntity() {
+    void CustomerServiceImpl_SaveCustomerDetails_ReturnsResponseEntityTest() {
         CustomerDto customerDtoObject = CustomerDto.builder()
                                     .customerCode(1001)
                                     .email("abcd@gmail.com")
@@ -47,10 +50,18 @@ class CustomerServiceImplTest {
                                         .build();
         log.info(String.valueOf(customerDtoObject));
                     // Below I think no need to assign to a CustomerEntity variable.
-        customerRepository.save(modelMapper.map(customerDtoObject, CustomerEntity.class));
+        CustomerEntity responseCustomerEntity = new CustomerEntity();
+        OngoingStubbing<CustomerEntity> customerEntityOngoingStubbing = when(customerRepository.save(modelMapper.map(customerDtoObject, CustomerEntity.class)))
+                .thenReturn(responseCustomerEntity);
+        /*
+        CustomerEntity savedCustomerEntity = customerRepository
+                                                .save(modelMapper.map(customerDtoObject, CustomerEntity.class));
+        */
         ResponseEntity<String> responseEntityForTesting = customerServiceImpl.saveCustomerDetails(customerDtoObject);
                     //Below Assertions--> import from assertj.core. NOT JUnit
         Assertions.assertThat(responseEntityForTesting).isEqualTo(ResponseEntity.ok("Details saved. Thank You.")) ;
+
+
     }
 }
 //    public ResponseEntity<String> saveCustomerDetails(CustomerDto customerDto) {
