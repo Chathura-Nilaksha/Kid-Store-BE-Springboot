@@ -1,4 +1,4 @@
-package org.example;
+package org.example.repository;
 
 import lombok.extern.slf4j.Slf4j;
 import org.example.dto.CustomerDto;

@@ -8,10 +8,9 @@ import org.example.service.CustomerService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
-import java.util.Objects;
 
 //@EnableJpaRepositories
 @RequiredArgsConstructor
@@ -24,9 +23,14 @@ public class CustomerServiceImpl implements CustomerService { //this error came 
     ModelMapper modelMapper;
     @Override
     public ResponseEntity<String> saveCustomerDetails(CustomerDto customerDto) {
-        CustomerEntity savedCustomerEntity = customerRepository.
-                                                save(modelMapper.map(customerDto, CustomerEntity.class));
-        return ResponseEntity.ok("Details saved. Thank You.");
+        try {
+            CustomerEntity savedCustomerEntity = customerRepository.
+                    save(modelMapper.map(customerDto, CustomerEntity.class));
+            return ResponseEntity.ok("Details saved. Thank You.");
+        }catch (Exception e){
+           return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                                .body("Data not saved due to internal Server error");
+        }
     }
 }
 
