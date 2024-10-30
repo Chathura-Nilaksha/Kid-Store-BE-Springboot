@@ -29,7 +29,7 @@ public class CustomerServiceImpl implements CustomerService { //this error came 
             return ResponseEntity.ok("Details saved. Thank You.");
         }catch (Exception e){
            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                                .body("Data not saved due to internal Server error");
+                                    .body("Data not saved due to internal Server error");
         }
     }
 }

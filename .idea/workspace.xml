@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6275fff9-9c96-4196-ba21-1d17b83b9bb1" name="Changes" comment="Editing">
+    <list default="true" id="6275fff9-9c96-4196-ba21-1d17b83b9bb1" name="Changes" comment="Develop CustomerServiceImpl">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/CustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/CustomerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/service/impl/CustomerServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/service/impl/CustomerServiceImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +83,9 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.example.repository" />
+    </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="org.example.service.impl" />
     </key>
@@ -111,12 +116,12 @@
       <module name="CW-customer-details" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.*" />
+          <option name="PATTERN" value="org.example.repository.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.example" />
-      <option name="MAIN_CLASS_NAME" value="org.example.CartItemListRepositoryTest" />
+      <option name="PACKAGE_NAME" value="org.example.repository" />
+      <option name="MAIN_CLASS_NAME" value="org.example.repository.CartItemListRepositoryTest" />
       <option name="METHOD_NAME" value="getAllCartItemsListWithCartItems" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -127,12 +132,12 @@
       <module name="CW-customer-details" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.*" />
+          <option name="PATTERN" value="org.example.repository.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.example" />
-      <option name="MAIN_CLASS_NAME" value="org.example.CartItemListRepositoryTest" />
+      <option name="PACKAGE_NAME" value="org.example.repository" />
+      <option name="MAIN_CLASS_NAME" value="org.example.repository.CartItemListRepositoryTest" />
       <option name="METHOD_NAME" value="saveCartItemListWithCartItemsTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -143,12 +148,12 @@
       <module name="CW-customer-details" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.*" />
+          <option name="PATTERN" value="org.example.repository.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.example" />
-      <option name="MAIN_CLASS_NAME" value="org.example.CustomerRepositoryTest" />
+      <option name="PACKAGE_NAME" value="org.example.repository" />
+      <option name="MAIN_CLASS_NAME" value="org.example.repository.CustomerRepositoryTest" />
       <option name="METHOD_NAME" value="saveCustomerEntity" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -341,7 +346,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729442198067</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Develop CustomerServiceImpl">
+      <option name="closed" value="true" />
+      <created>1729603510288</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1729603510289</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -427,7 +440,8 @@
     <MESSAGE value="Modifying Native repositories and Prepared EmailNotExisting class." />
     <MESSAGE value="Inserted EmailNotExisting class, Prepare CustomerServiceImplTest class." />
     <MESSAGE value="Editing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Editing" />
+    <MESSAGE value="Develop CustomerServiceImpl" />
+    <option name="LAST_COMMIT_MESSAGE" value="Develop CustomerServiceImpl" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

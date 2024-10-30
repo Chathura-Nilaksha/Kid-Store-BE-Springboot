@@ -17,7 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @SpringBootTest
 @Slf4j
@@ -32,9 +32,12 @@ class CustomerServiceImplTest {
     @Autowired
     private ModelMapper modelMapper;
 
+    // Below test () used new things
+        //1. "when" --when().thenReturn()
+        //2. "Assertions" --Assertions.assertThat().isEqualTo()     --> import from assertj.core. NOT JUnit
+        //3. "verify" --verify(customerRepository, times()).save() --> import from MOCKITO
     @Test
-    // Check below from-c
-    void CustomerServiceImpl_SaveCustomerDetails_ReturnsResponseEntityTest() {
+    void CustomerServiceImpl_SaveCustomerDetails_Returns_SuccessResponseEntityTest() {
         CustomerDto customerDtoObject = CustomerDto.builder()
                                     .customerCode(1001)
                                     .email("abcd@gmail.com")
@@ -49,21 +52,32 @@ class CustomerServiceImplTest {
                                     .whatsappNumber("0771234567")
                                         .build();
         log.info(String.valueOf(customerDtoObject));
-                    // Below I think no need to assign to a CustomerEntity variable.
-        CustomerEntity responseCustomerEntity = new CustomerEntity();
-        OngoingStubbing<CustomerEntity> customerEntityOngoingStubbing = when(customerRepository.save(modelMapper.map(customerDtoObject, CustomerEntity.class)))
-                .thenReturn(responseCustomerEntity);
-        /*
-        CustomerEntity savedCustomerEntity = customerRepository
-                                                .save(modelMapper.map(customerDtoObject, CustomerEntity.class));
-        */
+
+            //Assume below "asSavedCustomerEntity" as returning entity after saving the Dto object.
+        CustomerEntity asSavedCustomerEntity = new CustomerEntity();
+
+        OngoingStubbing<CustomerEntity> customerEntityOngoingStubbing;
+        customerEntityOngoingStubbing = when(
+                                            customerRepository.save(modelMapper.map(customerDtoObject, CustomerEntity.class))
+                                            )
+                                            .thenReturn(asSavedCustomerEntity);
+
         ResponseEntity<String> responseEntityForTesting = customerServiceImpl.saveCustomerDetails(customerDtoObject);
-                    //Below Assertions--> import from assertj.core. NOT JUnit
+
+            // "Assertions"--> import from assertj.core. NOT JUnit
         Assertions.assertThat(responseEntityForTesting).isEqualTo(ResponseEntity.ok("Details saved. Thank You.")) ;
 
-
+            // "verify" --> import from MOCKITO
+        verify(customerRepository, times(1)).save(asSavedCustomerEntity);
     }
 }
+
+// NEXT day- need to complete other test () for failure (catch option)
+
+
+
+
+
 //    public ResponseEntity<String> saveCustomerDetails(CustomerDto customerDto) {
 //        customerRepository.save(modelMapper.map(customerDto, CustomerEntity.class));
 //        return ResponseEntity.ok("Details saved. Thank You.");

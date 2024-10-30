@@ -21,6 +21,14 @@ public class Main {
         SpringApplication.run(Main.class);
     }
 }
+//10.22----------------------------------------------
+// Edited the CustomerServiceImpl class for try catch
+//Still pending 9.27 error.check after unit testing the error service layer after above
+
+// completed 1 test () in CustomerServiceImplTest class (for success option)
+//// NEXT day-need to complete other test () for failure (catch option)
+//Still pending 9.27 error.check after unit testing the error service layer after above
+
 
 //10.19-----------------------------------------------
 //Test class for CustomerServiceImplTest-->saveCustomer()-CHECK,TEST-CH & DOC WHETHER OK OR NOT.
