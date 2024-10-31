@@ -112,6 +112,7 @@ class CustomerServiceImplTest {
 
         // "verify" --> import from MOCKITO
         verify(customerRepository, times(1)).save(asSavedCustomerEntity);
+        //verify(customerRepository, times(1)).save(any(CustomerEntity.class)); //This too correct.
     }
 }
 
@@ -121,6 +122,7 @@ class CustomerServiceImplTest {
 //assertNotNull(responseEntityForTesting);
 //assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, responseEntityForTesting.getStatusCode());  // HTTP 500 Internal Server Error
 //assertEquals("Error saving customer details", responseEntityForTesting.getBody());
+//verify(customerRepository, times(1)).save(any(CustomerEntity.class));
 
 //try {
 //        CustomerEntity savedCustomerEntity = customerRepository.

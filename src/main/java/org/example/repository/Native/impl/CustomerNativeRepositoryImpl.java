@@ -19,7 +19,7 @@ public class CustomerNativeRepositoryImpl implements CustomerNativeRepository {
 
     private final JdbcTemplate jdbcTemplate;
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
-
+    @Override
     public Integer findCustomerCodeByEmail(String email){
         try {
             String sql = "select customerCode from CustomerEntity where email=:email2";

@@ -21,6 +21,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Service
 @Slf4j
+//I checked this () by sending data from firefox-->previousOrders(String registeredEmail)--STILL NOT WORKING
 public class OrderServiceImpl implements OrderService {
     final CustomerRepository customerRepository;
     final ModelMapper modelMapper;
@@ -30,7 +31,7 @@ public class OrderServiceImpl implements OrderService {
 //    @Autowired
 //    OrderBillingAddressDataEntity orderBillingAddressDataEntity;
             // Cant use constructor or autowired injection as @Entity annotated classes
-            // object creations are not managed by springboot framework.
+            // object creations are not managed by spring boot framework.
             // It is managed by JPA.
             //Spring is managing-->
                 // @RestController,@Service,@Repository,@Component. @Controller beans only.
@@ -149,7 +150,7 @@ public class OrderServiceImpl implements OrderService {
                 .headers(headers)
                 .body("Here is the String Object-Saving is done!");
     }
-
+// below is the () that test from firefox--STILL NOT WORKING
     @Override
     public PreviousOrdersData previousOrders(String registeredEmail) {
         log.info("this is service layer");
@@ -171,6 +172,7 @@ public class OrderServiceImpl implements OrderService {
             //previousOrdersData.setOderCodesList(orderCodesListFromDB);
             return previousOrdersData;
         }else{
+            log.info("INSIDE else--this is service layer");
             return null;
         }
     }

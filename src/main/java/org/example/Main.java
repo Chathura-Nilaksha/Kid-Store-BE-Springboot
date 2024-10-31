@@ -21,11 +21,19 @@ public class Main {
         SpringApplication.run(Main.class);
     }
 }
+//10.31---------------------------
+//Still pending 9.27 error.check after unit testing the error service layer after above.
+// ABOVE ERROR IS NOT COMING WHEN NO DATA IS IN THE DB TABLE(MEANS NO EMAIL ADDRESS IS IN THE
+// DB TABLE, THEN RETURN NULL OBJECT REPLY)
+//Now need to check with when email is existing in the db option
+
+
 //10.30---------------------------------------------
 // In CustomerServiceImplTest class --
 // complete other test () for failure (catch option)
 
 //Still pending 9.27 error.check after unit testing the error service layer after above
+
 
 
 //10.22----------------------------------------------
