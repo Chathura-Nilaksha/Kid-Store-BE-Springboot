@@ -21,6 +21,16 @@ public class Main {
         SpringApplication.run(Main.class);
     }
 }
+//11.4----------
+//SOLVED BELOW ERROR TOTALLY
+//"Still pending 9.27 error.check after unit testing the error service layer after above."
+
+
+//11.3-----------
+//same error comes, -even we put Page<Integer> customerCodeFromDB instead of INTEGER
+// as return type for below error
+//Still pending 9.27 error.check after unit testing the error service layer after above.
+
 //10.31---------------------------
 //Still pending 9.27 error.check after unit testing the error service layer after above.
 // ABOVE ERROR IS NOT COMING WHEN NO DATA IS IN THE DB TABLE(MEANS NO EMAIL ADDRESS IS IN THE

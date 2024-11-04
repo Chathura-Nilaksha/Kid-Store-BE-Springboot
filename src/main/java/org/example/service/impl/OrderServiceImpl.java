@@ -1,4 +1,5 @@
 package org.example.service.impl;
+import com.mysql.cj.result.IntegerValueFactory;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.dto.CartItems;
@@ -9,6 +10,7 @@ import org.example.repository.*;
 import org.example.service.OrderService;
 import org.hibernate.mapping.Array;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -17,6 +19,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -48,14 +51,18 @@ public class OrderServiceImpl implements OrderService {
             //String emailAccountRegistered = customerRepository.findByEmail(orderDto.getCustomerAndOrderData().getEmail()); // customerAndOrderData // customerCode
         String emailAccountRegistered = orderDto.getCustomerAndOrderData().getEmail();
             // I assume that registered email is given in getCustomerAndOrderData().getEmail()
-        PageRequest pageRequest = PageRequest.of(0, 1); // Limit results to 1 row
-        Integer customerCodeFromDB =
-                customerRepository.findCustomerCodeByEmail(emailAccountRegistered, pageRequest);
+        //PageRequest pageRequest = PageRequest.of(0, 1); // Limit results to 1 row
+        //Optional<Integer> customerCodeFromDB =   // did a change
+        CustomerEntity customerEntityFromDb =
+            customerRepository.findCustomerCodeByEmail(emailAccountRegistered);
+        Integer customerCodeFromDB = customerEntityFromDb.getCustomerCode();
             //Now get help from 3rd party (check net) and send a mail to above email-include below
                     // 1.order success and thanking
                     // 2.shipping address contact number.
                     // 3.billing address contact number.
 
+        //Integer customerCodeFromDB2 ; // did a change
+        //customerCodeFromDB2 = customerCodeFromDB.getContent().get(0); // did a change
 
         //DONE
         //NO.2-below to save order item details under generating new order code
@@ -154,27 +161,37 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public PreviousOrdersData previousOrders(String registeredEmail) {
         log.info("this is service layer");
-        if (customerRepository.existsByEmail(registeredEmail)) {
+        log.info("path var"+registeredEmail);
+        //if (customerRepository.existsByEmail(registeredEmail)) {
         //Hibernate: select ce1_0.customer_code from customer_entity ce1_0 where ce1_0.email=? limit ?
-            log.info("INSIDE IF--this is service layer");
-            PageRequest pageRequest = PageRequest.of(0, 1); // Limit results to 1 row
-            Integer customerCodeToViewPreviousOrders =
-                    customerRepository.findCustomerCodeByEmail(registeredEmail, pageRequest);
+        boolean b = customerRepository.existsByEmail(registeredEmail);
+        log.info(String.valueOf(b)); // comes b=false
+        log.info("INSIDE IF--this is service layer");
+        //PageRequest pageRequest = PageRequest.of(0, 1); // Limit results to 1 nos rows
+        //Below error comes from below line.
+        //" Specified result type [java.lang.Integer]
+        //      did not match Query selection type [org.example.entity.CustomerEntity]
+        //          - multiple selections: use Tuple or array "
 
+            CustomerEntity customerCodeToViewPreviousOrders =
+                    customerRepository.findCustomerCodeByEmail(registeredEmail);
+        //Hibernate: select ce1_0.customer_code,ce1_0.address_line1,ce1_0.address_line2,ce1_0.city,ce1_0.district,ce1_0.email,ce1_0.first_name,ce1_0.gender,ce1_0.last_name,ce1_0.password,ce1_0.phone_number1,ce1_0.phone_number2,ce1_0.whatsapp_number,ce1_0.year_of_birth from customer_entity ce1_0 where ce1_0.email=?
 
+        log.info("INSIDE IF--this is service layer--after error line");
 
             //Optional<Integer>
 //            Integer customerCodeFromDB =
 //                    customerRepository.findCustomerCodeByEmail(emailAccountRegistered);
             log.info(String.valueOf(customerCodeToViewPreviousOrders));
+
             //Now get list of orders with orderCode from customerCodeToViewPreviousOrders.
             //List<Integer> orderCodesListFromDB = cartItemsListRepository.findOrderCodeByCustomerCodeFromDB(customerCodeToViewPreviousOrders);
             //previousOrdersData.setOderCodesList(orderCodesListFromDB);
             return previousOrdersData;
-        }else{
-            log.info("INSIDE else--this is service layer");
-            return null;
-        }
+//        }else{
+//            log.info("INSIDE else--this is service layer");
+//            return null;
+//        }
     }
 }
 

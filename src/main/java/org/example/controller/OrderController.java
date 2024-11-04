@@ -36,7 +36,7 @@ public class OrderController {
                 .header("Location", "/order-details//save-email")
                 .build();
     }
-    @GetMapping(path = "/my-previous-orders/{registeredEmail}")
+    @GetMapping(path = "/my-previous-orders/{registeredEmail}")//in address not putting curly braces "{}"(for email)
             //CartItemsEntity <-- this might be another type.check later.
     public PreviousOrdersData previousOrders(@PathVariable String registeredEmail){
         return orderService.previousOrders(registeredEmail);
