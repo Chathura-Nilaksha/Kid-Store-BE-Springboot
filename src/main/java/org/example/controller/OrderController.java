@@ -20,7 +20,7 @@ import java.util.List;
 public class OrderController {
     @Lazy
     final OrderService orderService;
-    @PostMapping("/save-email")
+    @PostMapping("/save-email")  //When no attribute is specified here then default is (value="/save-email")
     //@PostMapping(path = "/save-email")   <-- This too correct
     public ResponseEntity<String> saveAndEmailOrderDetails(@RequestBody OrderDto orderDto){
                                         //(@RequestBody CustomerAndOrderData customerAndOrderData)
@@ -36,7 +36,7 @@ public class OrderController {
                 .header("Location", "/order-details//save-email")
                 .build();
     }
-    @GetMapping(path = "/my-previous-orders/{registeredEmail}")//in address not putting curly braces "{}"(for email)
+    @GetMapping(path = "/my-previous-orders/{registeredEmail}")//in address when typing don't put curly braces "{}"(for email)
             //CartItemsEntity <-- this might be another type.check later.
     public PreviousOrdersData previousOrders(@PathVariable String registeredEmail){
         return orderService.previousOrders(registeredEmail);

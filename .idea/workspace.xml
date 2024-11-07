@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6275fff9-9c96-4196-ba21-1d17b83b9bb1" name="Changes" comment="Develop few classes">
+    <list default="true" id="6275fff9-9c96-4196-ba21-1d17b83b9bb1" name="Changes" comment="Solved error was in OrderServiceImpl.class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/CustomerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/OrderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repository/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/CustomerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/repository/CustomerRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/repository/CustomerRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/service/impl/OrderServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/service/impl/OrderServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -414,7 +411,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730381038107</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Solved error was in OrderServiceImpl.class">
+      <option name="closed" value="true" />
+      <created>1730706199341</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1730706199341</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -503,7 +508,8 @@
     <MESSAGE value="Develop CustomerServiceImpl" />
     <MESSAGE value="Develop CustomerServiceImplTest" />
     <MESSAGE value="Develop few classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Develop few classes" />
+    <MESSAGE value="Solved error was in OrderServiceImpl.class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Solved error was in OrderServiceImpl.class" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
