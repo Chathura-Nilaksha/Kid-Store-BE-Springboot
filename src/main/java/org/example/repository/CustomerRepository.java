@@ -17,7 +17,7 @@ public interface CustomerRepository extends JpaRepository<CustomerEntity, Intege
     //@Query( value ="SELECT c FROM CustomerEntity c WHERE c.email=?1" )
     //above all 3 are ok. as default comes "nativeQuery=false"
     CustomerEntity findCustomerCodeByEmail(String email);
-    @Query(nativeQuery=false, value ="SELECT COUNT (c)>0 FROM CustomerEntity c WHERE c.email=?1")
+    @Query(nativeQuery=false, value ="SELECT COUNT (c)>0 FROM CustomerEntity c WHERE c.email=?1")//this is JPQL.
     boolean existsByEmail (String mail);
 
 /*
