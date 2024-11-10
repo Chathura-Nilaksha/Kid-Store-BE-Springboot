@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6275fff9-9c96-4196-ba21-1d17b83b9bb1" name="Changes" comment="Solved error was in OrderServiceImpl.class">
+    <list default="true" id="6275fff9-9c96-4196-ba21-1d17b83b9bb1" name="Changes" comment="Developed several classes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/CustomerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/OrderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repository/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/CustomerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/controller/CustomerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/controller/CustomerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/repository/CustomerRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/repository/CustomerRepository.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -419,7 +419,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730706199341</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Developed several classes">
+      <option name="closed" value="true" />
+      <created>1730995194158</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1730995194158</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -509,7 +517,8 @@
     <MESSAGE value="Develop CustomerServiceImplTest" />
     <MESSAGE value="Develop few classes" />
     <MESSAGE value="Solved error was in OrderServiceImpl.class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Solved error was in OrderServiceImpl.class" />
+    <MESSAGE value="Developed several classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Developed several classes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
