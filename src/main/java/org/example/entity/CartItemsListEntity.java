@@ -36,22 +36,22 @@ public class CartItemsListEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="orderCode")
-    private Integer orderCode;
+    private Integer orderCode;//ONLY THIS 1.4 ARE IN THE MYSQL DB TABLE-11.12-CHECK ONETOONE, ONETOMAY MAPPING THEORIES
 
     // Better put the data for the orderCode as need when customer checking his previous orders.
     @CreationTimestamp
     @Column(updatable = false) // To ensure the creation date doesn't change after insertion
-    private LocalDateTime entityCreatingTime;
+    private LocalDateTime entityCreatingTime;//ONLY THIS 1.4 ARE IN THE MYSQL DB TABLE-11.12-CHECK ONETOONE, ONETOMAY MAPPING THEORIES
 
     // customer identifying code
-    private Integer customerCodeFromDB;
-    private Double grandTotal;
+    private Integer customerCodeFromDB;//ONLY THIS 1.4 ARE IN THE MYSQL DB TABLE-11.12-CHECK ONETOONE, ONETOMAY MAPPING THEORIES
+    private Double grandTotal;//ONLY THIS 1.4 ARE IN THE MYSQL DB TABLE-11.12-CHECK ONETOONE, ONETOMAY MAPPING THEORIES
+
+
 
     //@Type(type = "CartItemsEntityType")
     @OneToMany(mappedBy = "cartItemsListEntity", fetch = FetchType.EAGER ,cascade = CascadeType.ALL, orphanRemoval = true) //
     private List<CartItemsEntity> entityList;
-
-
 
     //@OneToMany(mappedBy = "cartItemsListEntity", cascade = CascadeType.ALL, orphanRemoval = true)
     @OneToOne(mappedBy ="cartItemsListEntity", cascade=CascadeType.ALL, orphanRemoval = true)

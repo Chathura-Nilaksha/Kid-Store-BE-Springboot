@@ -6,9 +6,12 @@ import org.example.dto.CartItems;
 import org.example.dto.OrderDto;
 import org.example.dtoOutgoing.PreviousOrdersData;
 import org.example.entity.*;
+import org.example.exeptions.EmailNotExisting;
+import org.example.exeptions.NoPreviousOrders;
 import org.example.repository.*;
 import org.example.service.OrderService;
 import org.hibernate.mapping.Array;
+import org.jetbrains.annotations.NotNull;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -43,7 +46,7 @@ public class OrderServiceImpl implements OrderService {
 
 
     @Override
-    public ResponseEntity<String> saveAndEmailOrderDetails(OrderDto orderDto) {
+    public ResponseEntity<String> saveAndEmailOrderDetails(@NotNull OrderDto orderDto) {
                                         //(CustomerAndOrderData customerAndOrderData)
         //NO.1-below to send email with order confirmation-to that currently has logged in
         // and send email with all required data to the seller to send the item to customer
@@ -157,41 +160,47 @@ public class OrderServiceImpl implements OrderService {
                 .headers(headers)
                 .body("Here is the String Object-Saving is done!");
     }
-// below is the () that test from firefox--STILL NOT WORKING
     @Override
     public PreviousOrdersData previousOrders(String registeredEmail) {
         log.info("this is service layer");
         log.info("path var"+registeredEmail);
-        //if (customerRepository.existsByEmail(registeredEmail)) {
-        //Hibernate: select ce1_0.customer_code from customer_entity ce1_0 where ce1_0.email=? limit ?
-        boolean b = customerRepository.existsByEmail(registeredEmail);
-        log.info(String.valueOf(b)); // comes b=false
-        log.info("INSIDE IF--this is service layer");
+
+        if (customerRepository.existsByEmail(registeredEmail)) { //released-11.10.check next day by post
+        //Hibernate query: select ce1_0.customer_code from customer_entity ce1_0 where ce1_0.email=? limit ?
+
+            boolean b = customerRepository.existsByEmail(registeredEmail);
+            log.info(String.valueOf(b)); // comes b=false
+            log.info("INSIDE IF--this is service layer");
         //PageRequest pageRequest = PageRequest.of(0, 1); // Limit results to 1 nos rows
-        //Below error comes from below line.
-        //" Specified result type [java.lang.Integer]
-        //      did not match Query selection type [org.example.entity.CustomerEntity]
-        //          - multiple selections: use Tuple or array "
-
-            CustomerEntity customerCodeToViewPreviousOrders =
+                            //customerCodeToViewPreviousOrders
+            CustomerEntity comesCustomerEntityToViewPreviousOrders =
                     customerRepository.findCustomerCodeByEmail(registeredEmail);
-        //Hibernate: select ce1_0.customer_code,ce1_0.address_line1,ce1_0.address_line2,ce1_0.city,ce1_0.district,ce1_0.email,ce1_0.first_name,ce1_0.gender,ce1_0.last_name,ce1_0.password,ce1_0.phone_number1,ce1_0.phone_number2,ce1_0.whatsapp_number,ce1_0.year_of_birth from customer_entity ce1_0 where ce1_0.email=?
+        //Hibernate query: select ce1_0.customer_code,ce1_0.address_line1,ce1_0.address_line2,ce1_0.city,
+            // ce1_0.district,ce1_0.email,ce1_0.first_name,ce1_0.gender,ce1_0.last_name,ce1_0.password,
+            // ce1_0.phone_number1,ce1_0.phone_number2,ce1_0.whatsapp_number,ce1_0.year_of_birth
+            // from customer_entity ce1_0 where ce1_0.email=?
 
-        log.info("INSIDE IF--this is service layer--after error line");
+            log.info("INSIDE IF--this is service layer--after error line");
+            log.info(String.valueOf(comesCustomerEntityToViewPreviousOrders));
 
-            //Optional<Integer>
-//            Integer customerCodeFromDB =
-//                    customerRepository.findCustomerCodeByEmail(emailAccountRegistered);
-            log.info(String.valueOf(customerCodeToViewPreviousOrders));
-
-            //Now get list of orders with orderCode from customerCodeToViewPreviousOrders.
+            //Now get list of orders with orderCode from comesCustomerEntityToViewPreviousOrders.
             //List<Integer> orderCodesListFromDB = cartItemsListRepository.findOrderCodeByCustomerCodeFromDB(customerCodeToViewPreviousOrders);
             //previousOrdersData.setOderCodesList(orderCodesListFromDB);
-            return previousOrdersData;
-//        }else{
-//            log.info("INSIDE else--this is service layer");
-//            return null;
-//        }
+
+            Integer customerCodeToViewPreviousOrders = comesCustomerEntityToViewPreviousOrders.getCustomerCode();
+            //use this to find the past orders' order codes of this customerCode owner.
+            //CartItemsListEntity cartItemsListEntityToViewPreviousOrders =
+            List<Integer> orderCodesOfPreviousOrders = cartItemsListRepository
+                                                        .findOrderCodeByCustomerCodeFromDB(customerCodeToViewPreviousOrders);
+            if(!orderCodesOfPreviousOrders.isEmpty()){
+                return previousOrdersData;
+            }else throw new NoPreviousOrders("This existing customer hasn't order anything yet");
+
+        }else{                                                  //released-11.10.check next day by post
+            log.info("INSIDE else--this is service layer");     //released-11.10.check next day by post
+            throw new EmailNotExisting("Given email is NOT a registered email address");
+            //return null;                                        //released-11.10.check next day by post
+        }
     }
 }
 

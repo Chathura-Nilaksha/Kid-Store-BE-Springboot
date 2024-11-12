@@ -20,10 +20,29 @@ public class Main {
     public static void main(String[] args) {
         SpringApplication.run(Main.class);
     }
+
+//-----search --- multiple selections: use Tuple or array ?----here----
+//" Specified result type [java.lang.Integer]
+    //      did not match Query selection type [org.example.entity.CustomerEntity]
+    //          - multiple selections: use Tuple or array "
 }
+
+
+
+
+
+//11.10---------
+//--CustomerRepository, LoginRepository----
+//Inserted the @Queries
+//Run the main ()-No issues
+
+//nextD do
+//OrderServiceImpl issue ()---//released-11.10.check next day by post
+
+
 //11.4----------
 //SOLVED BELOW ERROR TOTALLY
-//"Still pending 9.27 error.check after unit testing the error service layer after above."
+//SOLVED-"Still pending 9.27 error.check after unit testing the error service layer after above."
 
 
 //11.3-----------
