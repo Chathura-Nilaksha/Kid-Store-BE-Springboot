@@ -1,9 +1,11 @@
-package org.example.dto;
+package org.example.dtoOutgoing;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.Embedded;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.example.dto.CartItems;
+import org.example.dto.CustomerAndOrderData;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -13,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @Component
 @Embeddable
-public class OrderDto{
+public class OrderDtoSendingToFE {
     private Integer orderCode;
 
     @Embedded
@@ -28,17 +30,12 @@ public class OrderDto{
                     //entity 2.billing address data-with customerCode colum
                     //entity 3.card data-with customerCode colum
 
-    private Boolean isSaveShippingDataInDB; // use these for send to save to DB
-    private Boolean isSaveBillingDataInDB; // use these for send to save to DB
-
     private String cardType; //insert into entity 3-->"card data-with customerCode colum"
-    //private CartItems [] cartItems;
+
     private List<CartItems> cartItems; //// object array
                     //entity 4
 //object ={ Integer id, String name, Integer quantity, Double price}
-    private Double grandTotal; // FE as number//denata meeka use nokara multipication
-                                            //valin order item vala price hagagamu.
-                                            //9.17-meeka cartItemListEntity eke colum ekakata demma
+    private Double grandTotal; // FE as number
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -50,3 +47,6 @@ public class OrderDto{
 //    But if use boolean (the primitive)  --> only generate this
 //        public boolean isSaveShippingDataInDB() { return saveShippingDataInDB; }
 ///////////////////////////////////////////////////////////////////////
+
+
+

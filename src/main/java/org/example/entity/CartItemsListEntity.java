@@ -50,14 +50,12 @@ public class CartItemsListEntity {
 
 
     //@Type(type = "CartItemsEntityType")
-    @OneToMany(mappedBy = "cartItemsListEntity", fetch = FetchType.EAGER ,cascade = CascadeType.ALL, orphanRemoval = true) //
+    @OneToMany(mappedBy = "cartItemsListEntity", fetch = FetchType.EAGER ,cascade = CascadeType.ALL, orphanRemoval = true)
     private List<CartItemsEntity> entityList;
 
-    //@OneToMany(mappedBy = "cartItemsListEntity", cascade = CascadeType.ALL, orphanRemoval = true)
     @OneToOne(mappedBy ="cartItemsListEntity", cascade=CascadeType.ALL, orphanRemoval = true)
     private OrderBillingAddressDataEntity orderBillingAddressDataEntity;
 
-    //@OneToMany(mappedBy = "cartItemsListEntity", cascade = CascadeType.ALL, orphanRemoval = true)
     @OneToOne(mappedBy ="cartItemsListEntity", cascade=CascadeType.ALL, orphanRemoval = true)
     private OrderShippingAddressDataEntity orderShippingAddressDataEntity;
 

@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Embeddable
+@Embeddable /* Now DB is not making a table to this class */
 public class CustomerAndOrderDataEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

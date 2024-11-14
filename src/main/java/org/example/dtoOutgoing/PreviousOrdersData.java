@@ -5,6 +5,7 @@ import jakarta.persistence.Embedded;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.example.entity.OrderEntity;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -14,14 +15,11 @@ import java.util.List;
 @Component
 public class PreviousOrdersData {
     @Embedded
-    private List<Integer> oderCodesList;
-}
+    private List<Integer> oderCodesList; // meekath OrderDtoSendingToFE eke field ekakata
+                                                // daala yavanna try karamu
 
-//@Data
-//@NoArgsConstructor
-//@AllArgsConstructor
-//@Component
-//@Embeddable
-//public class OrderCode {
-//    private Integer orderCode ;
-//}
+    @Embedded
+    private List<OrderDtoSendingToFE> orderDtoSendingToFEListToRelevantOrderCodesList;
+
+
+}

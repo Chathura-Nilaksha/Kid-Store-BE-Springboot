@@ -25,6 +25,7 @@ public class Main {
 //" Specified result type [java.lang.Integer]
     //      did not match Query selection type [org.example.entity.CustomerEntity]
     //          - multiple selections: use Tuple or array "
+
 }
 
 

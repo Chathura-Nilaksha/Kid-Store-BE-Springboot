@@ -27,7 +27,6 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @Service
 @Slf4j
-//I checked this () by sending data from firefox-->previousOrders(String registeredEmail)--STILL NOT WORKING
 public class OrderServiceImpl implements OrderService {
     final CustomerRepository customerRepository;
     final ModelMapper modelMapper;
@@ -43,7 +42,6 @@ public class OrderServiceImpl implements OrderService {
                 // @RestController,@Service,@Repository,@Component. @Controller beans only.
 //    @Autowired
 //    OrderShippingAddressDataEntity orderShippingAddressDataEntity;
-
 
     @Override
     public ResponseEntity<String> saveAndEmailOrderDetails(@NotNull OrderDto orderDto) {
@@ -183,23 +181,24 @@ public class OrderServiceImpl implements OrderService {
             log.info("INSIDE IF--this is service layer--after error line");
             log.info(String.valueOf(comesCustomerEntityToViewPreviousOrders));
 
-            //Now get list of orders with orderCode from comesCustomerEntityToViewPreviousOrders.
+        //Now get list of orders with orderCode from comesCustomerEntityToViewPreviousOrders.
             //List<Integer> orderCodesListFromDB = cartItemsListRepository.findOrderCodeByCustomerCodeFromDB(customerCodeToViewPreviousOrders);
             //previousOrdersData.setOderCodesList(orderCodesListFromDB);
 
             Integer customerCodeToViewPreviousOrders = comesCustomerEntityToViewPreviousOrders.getCustomerCode();
             //use this to find the past orders' order codes of this customerCode owner.
-            //CartItemsListEntity cartItemsListEntityToViewPreviousOrders =
             List<Integer> orderCodesOfPreviousOrders = cartItemsListRepository
                                                         .findOrderCodeByCustomerCodeFromDB(customerCodeToViewPreviousOrders);
             if(!orderCodesOfPreviousOrders.isEmpty()){
+                //now edit here
+
                 return previousOrdersData;
-            }else throw new NoPreviousOrders("This existing customer hasn't order anything yet");
+            }else throw new NoPreviousOrders("This existing customer hasn't " +
+                                                                            "order anything yet");
 
         }else{                                                  //released-11.10.check next day by post
             log.info("INSIDE else--this is service layer");     //released-11.10.check next day by post
             throw new EmailNotExisting("Given email is NOT a registered email address");
-            //return null;                                        //released-11.10.check next day by post
         }
     }
 }
