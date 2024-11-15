@@ -3,9 +3,12 @@ import com.mysql.cj.result.IntegerValueFactory;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.dto.CartItems;
+import org.example.dto.CustomerAndOrderData;
 import org.example.dto.OrderDto;
+import org.example.dtoOutgoing.OrderDtoSendingToFE;
 import org.example.dtoOutgoing.PreviousOrdersData;
 import org.example.entity.*;
+import org.example.exeptions.CustomerAndOrderDataRawNotExistingInDBTable;
 import org.example.exeptions.EmailNotExisting;
 import org.example.exeptions.NoPreviousOrders;
 import org.example.repository.*;
@@ -33,6 +36,7 @@ public class OrderServiceImpl implements OrderService {
     final CartItemsListRepository cartItemsListRepository;
     final CartItems cartItems;
     final PreviousOrdersData previousOrdersData;
+    final CustomerAndOrderDataRepository customerAndOrderDataRepository;
 //    @Autowired
 //    OrderBillingAddressDataEntity orderBillingAddressDataEntity;
             // Cant use constructor or autowired injection as @Entity annotated classes
@@ -160,14 +164,13 @@ public class OrderServiceImpl implements OrderService {
     }
     @Override
     public PreviousOrdersData previousOrders(String registeredEmail) {
-        log.info("this is service layer");
-        log.info("path var"+registeredEmail);
+        log.info("this is service layer path var"+registeredEmail);
 
         if (customerRepository.existsByEmail(registeredEmail)) { //released-11.10.check next day by post
         //Hibernate query: select ce1_0.customer_code from customer_entity ce1_0 where ce1_0.email=? limit ?
 
             boolean b = customerRepository.existsByEmail(registeredEmail);
-            log.info(String.valueOf(b)); // comes b=false
+            log.info(String.valueOf(b));
             log.info("INSIDE IF--this is service layer");
         //PageRequest pageRequest = PageRequest.of(0, 1); // Limit results to 1 nos rows
                             //customerCodeToViewPreviousOrders
@@ -187,12 +190,57 @@ public class OrderServiceImpl implements OrderService {
 
             Integer customerCodeToViewPreviousOrders = comesCustomerEntityToViewPreviousOrders.getCustomerCode();
             //use this to find the past orders' order codes of this customerCode owner.
+
             List<Integer> orderCodesOfPreviousOrders = cartItemsListRepository
                                                         .findOrderCodeByCustomerCodeFromDB(customerCodeToViewPreviousOrders);
-            if(!orderCodesOfPreviousOrders.isEmpty()){
-                //now edit here
 
-                return previousOrdersData;
+            if(!orderCodesOfPreviousOrders.isEmpty()){
+                PreviousOrdersData previousOrdersData1 = new PreviousOrdersData();
+
+                List<OrderDtoSendingToFE> orderDtoSendingToFEListToRelevantOrderCodesList = new ArrayList<>();
+
+                orderCodesOfPreviousOrders.forEach(orderCode -> {
+                    OrderDtoSendingToFE orderDtoSendingToFE = new OrderDtoSendingToFE();
+                    orderDtoSendingToFE.setOrderCode(orderCode);
+
+                    //Now have to search relevant items to other fields of the " OrderDtoSendingToFE " using "orderCode"
+                        // & complete the " OrderDtoSendingToFE " obj.Below are Other fields.
+                    //1.CustomerAndOrderData customerAndOrderData-completed, but check next day
+                    //2.String cardType
+                    //3.List<CartItems> cartItems
+                    //4.Double grandTotal
+                        //1.completed, but check next day
+                    Optional<CustomerAndOrderDataEntity> customerAndOrderDataEntityForPreviousOrderCode =
+                            customerAndOrderDataRepository.findById(Long.valueOf(orderCode)) ;
+                    if(customerAndOrderDataEntityForPreviousOrderCode.isPresent()){
+                        CustomerAndOrderDataEntity existingCustomerAndOrderDataEntityForPreviousOrderCode =
+                                customerAndOrderDataEntityForPreviousOrderCode.get();
+                        CustomerAndOrderData existingCustomerAndOrderDataForPreviousOrder =
+                                modelMapper.map(
+                                        existingCustomerAndOrderDataEntityForPreviousOrderCode, CustomerAndOrderData.class
+                                                );
+
+                        orderDtoSendingToFE.setCustomerAndOrderData(existingCustomerAndOrderDataForPreviousOrder);
+                    }else{
+                        throw new CustomerAndOrderDataRawNotExistingInDBTable("CustomerAndOrderData raw is " +
+                                "not existing in the Database Table for the orderCode of"+orderCode);
+                    }
+
+                        //2.
+
+
+
+
+
+                    orderDtoSendingToFEListToRelevantOrderCodesList.add(orderDtoSendingToFE);
+                });
+
+
+
+                previousOrdersData1.setOrderDtoListSendingToFE(orderDtoSendingToFEListToRelevantOrderCodesList);
+
+                return previousOrdersData1;
+
             }else throw new NoPreviousOrders("This existing customer hasn't " +
                                                                             "order anything yet");
 

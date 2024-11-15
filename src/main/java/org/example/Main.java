@@ -1,17 +1,8 @@
 package org.example;
 
-import org.example.dto.OrderDto;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-import org.springframework.boot.autoconfigure.web.ServerProperties;
-import org.springframework.boot.jdbc.metadata.TomcatDataSourcePoolMetadata;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+
 
 //@EnableJpaRepositories
 @SpringBootApplication //(exclude = {DataSourceAutoConfiguration.class})
@@ -27,9 +18,20 @@ public class Main {
     //          - multiple selections: use Tuple or array "
 
 }
+//11.15--
+//--OrderServiceImpl-previousOrders()--
+//partly completed inside if
+
+//--MADE--EXEMPTION cls-CustomerAndOrderDataRawNotExistingInDBTable--
 
 
+//11.14---
+//--DELETED -orderRepository -(as orderEntity cls tagged as @MappedSupperClass)
+//--MADE- OrderDtoSendingToFE cls, Developed PreviousOrdersData cls
 
+
+//11.12---
+//Resolved---> //(11.10) -OrderServiceImpl issue ()---//released-11.10.check next day by post
 
 
 //11.10---------

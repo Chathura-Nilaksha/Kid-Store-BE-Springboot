@@ -54,6 +54,9 @@ public class CartItemsListEntity {
     private List<CartItemsEntity> entityList;
 
     @OneToOne(mappedBy ="cartItemsListEntity", cascade=CascadeType.ALL, orphanRemoval = true)
+    private CustomerAndOrderDataEntity customerAndOrderDataEntity;
+
+    @OneToOne(mappedBy ="cartItemsListEntity", cascade=CascadeType.ALL, orphanRemoval = true)
     private OrderBillingAddressDataEntity orderBillingAddressDataEntity;
 
     @OneToOne(mappedBy ="cartItemsListEntity", cascade=CascadeType.ALL, orphanRemoval = true)

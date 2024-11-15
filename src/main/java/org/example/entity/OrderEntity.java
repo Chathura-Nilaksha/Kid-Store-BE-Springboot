@@ -20,7 +20,7 @@ public class OrderEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer orderCode;
-    @Embedded
+    //@Embedded
     private CustomerAndOrderData customerAndOrderData; //  object
 //      String firstName,String firstNameBill,String lastName,String lastNameBill
 //      String phoneNumber,String email,String emailBill,String addressLine1

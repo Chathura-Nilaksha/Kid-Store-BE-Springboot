@@ -14,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Component
-@Embeddable
+@Embeddable             //This cls is a copy and edited from OrderDto cls.
 public class OrderDtoSendingToFE {
     private Integer orderCode;
 
@@ -36,7 +36,8 @@ public class OrderDtoSendingToFE {
                     //entity 4
 //object ={ Integer id, String name, Integer quantity, Double price}
     private Double grandTotal; // FE as number
-}
+
+}//This cls is a copy and edited from OrderDto cls.
 
 ////////////////////////////////////////////////////////////////////
 //NOTE:-

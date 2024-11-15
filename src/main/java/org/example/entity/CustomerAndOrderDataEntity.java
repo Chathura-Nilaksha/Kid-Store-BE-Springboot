@@ -8,12 +8,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Embeddable /* Now DB is not making a table to this class */
+//@Embeddable //AS @Embeddable, Now DB is not making a table to this class.
+//This class has joined with CartItemsListEntity.This class is sending data
+    // directly (as it has as "CustomerAndOrderData" DTO class) when for
+    // "PREVIOUS ORDERS DATA REQUEST API".Therefore, @Embeddable is removed.
 public class CustomerAndOrderDataEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long no;
-
 
     private String firstName;
     private String firstNameBill;
@@ -35,4 +37,8 @@ public class CustomerAndOrderDataEntity {
     private String ccNumber;
     private String ccExpiration;
     private String cccvv;
+
+    @OneToOne
+    @JoinColumn(name = "fk_order_code", nullable = false)
+    private CartItemsListEntity cartItemsListEntity;
 }

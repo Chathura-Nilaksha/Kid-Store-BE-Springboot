@@ -4,19 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6275fff9-9c96-4196-ba21-1d17b83b9bb1" name="Changes" comment="Developed mainly OrderServiceImpl, NoPreviousOrders custom exception">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dtoOutgoing/OrderDtoSendingToFE.java" afterDir="false" />
+    <list default="true" id="6275fff9-9c96-4196-ba21-1d17b83b9bb1" name="Changes" comment="Developed several classes. and deleted the OrderRepository.java">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/exeptions/CustomerAndOrderDataRawNotExistingInDBTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/OrderDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/OrderDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dtoOutgoing/OrderDtoSendingToFE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dtoOutgoing/OrderDtoSendingToFE.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dtoOutgoing/PreviousOrdersData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dtoOutgoing/PreviousOrdersData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/CartItemsListEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/CartItemsListEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/CustomerAndOrderDataEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/CustomerAndOrderDataEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/OrderEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/OrderEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repository/CartItemsListRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/CartItemsListRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repository/OrderRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repository/CustomerAndOrderDataRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/CustomerAndOrderDataRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/service/impl/OrderServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/service/impl/OrderServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,8 +97,8 @@
       <recent name="org.example.service.impl" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="org.example.dtoOutgoing" />
       <recent name="org.example.exeptions" />
+      <recent name="org.example.dtoOutgoing" />
       <recent name="org.example.repository" />
       <recent name="org.example.entity" />
     </key>
@@ -462,7 +460,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731396295221</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Developed several classes. and deleted the OrderRepository.java">
+      <option name="closed" value="true" />
+      <created>1731597556110</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1731597556110</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -530,7 +536,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Initial comment" />
     <MESSAGE value="Prepared CustomerDto" />
     <MESSAGE value="Prepared folder structure and details" />
     <MESSAGE value="Prepared Customer details saving function" />
@@ -555,7 +560,8 @@
     <MESSAGE value="Developed several classes" />
     <MESSAGE value="Developed LoginRepository with JPQL" />
     <MESSAGE value="Developed mainly OrderServiceImpl, NoPreviousOrders custom exception" />
-    <option name="LAST_COMMIT_MESSAGE" value="Developed mainly OrderServiceImpl, NoPreviousOrders custom exception" />
+    <MESSAGE value="Developed several classes. and deleted the OrderRepository.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Developed several classes. and deleted the OrderRepository.java" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
