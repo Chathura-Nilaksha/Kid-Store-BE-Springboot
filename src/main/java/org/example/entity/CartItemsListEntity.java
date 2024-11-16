@@ -40,7 +40,7 @@ public class CartItemsListEntity {
 
     // Better put the data for the orderCode as need when customer checking his previous orders.
     @CreationTimestamp
-    @Column(updatable = false) // To ensure the creation date doesn't change after insertion
+    @Column(updatable = false, nullable = false) //"updatable = false"-To ensure the creation date doesn't change after insertion
     private LocalDateTime entityCreatingTime;//ONLY THIS 1.4 ARE IN THE MYSQL DB TABLE-11.12-CHECK ONETOONE, ONETOMAY MAPPING THEORIES
 
     // customer identifying code

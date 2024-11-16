@@ -8,17 +8,18 @@ import org.example.dto.CartItems;
 import org.example.dto.CustomerAndOrderData;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Component
-@Embeddable             //This cls is a copy and edited from OrderDto cls.
+//@Embeddable             //This cls is a copy and edited from OrderDto cls.
 public class OrderDtoSendingToFE {
     private Integer orderCode;
 
-    @Embedded
+    @Embedded // CHECK-when API call from Firefox works correctly with this ANO and without this ANO
     private CustomerAndOrderData customerAndOrderData; ////  object
 //      String firstName,String firstNameBill,String lastName,String lastNameBill
 //      String phoneNumber,String email,String emailBill,String addressLine1
@@ -36,6 +37,8 @@ public class OrderDtoSendingToFE {
                     //entity 4
 //object ={ Integer id, String name, Integer quantity, Double price}
     private Double grandTotal; // FE as number
+
+    private LocalDateTime entityCreatingTime;
 
 }//This cls is a copy and edited from OrderDto cls.
 

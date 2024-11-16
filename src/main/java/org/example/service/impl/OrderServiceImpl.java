@@ -1,5 +1,4 @@
 package org.example.service.impl;
-import com.mysql.cj.result.IntegerValueFactory;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.dto.CartItems;
@@ -13,16 +12,14 @@ import org.example.exeptions.EmailNotExisting;
 import org.example.exeptions.NoPreviousOrders;
 import org.example.repository.*;
 import org.example.service.OrderService;
-import org.hibernate.mapping.Array;
 import org.jetbrains.annotations.NotNull;
 import org.modelmapper.ModelMapper;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -37,6 +34,7 @@ public class OrderServiceImpl implements OrderService {
     final CartItems cartItems;
     final PreviousOrdersData previousOrdersData;
     final CustomerAndOrderDataRepository customerAndOrderDataRepository;
+    final CardDataRepository cardDataRepository;
 //    @Autowired
 //    OrderBillingAddressDataEntity orderBillingAddressDataEntity;
             // Cant use constructor or autowired injection as @Entity annotated classes
@@ -195,41 +193,55 @@ public class OrderServiceImpl implements OrderService {
                                                         .findOrderCodeByCustomerCodeFromDB(customerCodeToViewPreviousOrders);
 
             if(!orderCodesOfPreviousOrders.isEmpty()){
+
                 PreviousOrdersData previousOrdersData1 = new PreviousOrdersData();
 
                 List<OrderDtoSendingToFE> orderDtoSendingToFEListToRelevantOrderCodesList = new ArrayList<>();
 
-                orderCodesOfPreviousOrders.forEach(orderCode -> {
+                orderCodesOfPreviousOrders.forEach( orderCode -> {
                     OrderDtoSendingToFE orderDtoSendingToFE = new OrderDtoSendingToFE();
+
                     orderDtoSendingToFE.setOrderCode(orderCode);
 
                     //Now have to search relevant items to other fields of the " OrderDtoSendingToFE " using "orderCode"
                         // & complete the " OrderDtoSendingToFE " obj.Below are Other fields.
-                    //1.CustomerAndOrderData customerAndOrderData-completed, but check next day
-                    //2.String cardType
-                    //3.List<CartItems> cartItems
-                    //4.Double grandTotal
-                        //1.completed, but check next day
+                            //1.CustomerAndOrderData customerAndOrderData-completed-ok
+                            //2.String cardType -completed-ok
+                            //3.List<CartItems> cartItems
+                            //4.Double grandTotal
+                            //5.LocalDateTime entityCreatingTime
+
+                        //1.completed-ok
                     Optional<CustomerAndOrderDataEntity> customerAndOrderDataEntityForPreviousOrderCode =
-                            customerAndOrderDataRepository.findById(Long.valueOf(orderCode)) ;
+                            customerAndOrderDataRepository.findByForeignKeyOfOderCode(orderCode) ;
+
                     if(customerAndOrderDataEntityForPreviousOrderCode.isPresent()){
                         CustomerAndOrderDataEntity existingCustomerAndOrderDataEntityForPreviousOrderCode =
                                 customerAndOrderDataEntityForPreviousOrderCode.get();
                         CustomerAndOrderData existingCustomerAndOrderDataForPreviousOrder =
                                 modelMapper.map(
-                                        existingCustomerAndOrderDataEntityForPreviousOrderCode, CustomerAndOrderData.class
+                                                existingCustomerAndOrderDataEntityForPreviousOrderCode,
+                                                CustomerAndOrderData.class
                                                 );
 
                         orderDtoSendingToFE.setCustomerAndOrderData(existingCustomerAndOrderDataForPreviousOrder);
-                    }else{
-                        throw new CustomerAndOrderDataRawNotExistingInDBTable("CustomerAndOrderData raw is " +
-                                "not existing in the Database Table for the orderCode of"+orderCode);
-                    }
+                    }else throw new CustomerAndOrderDataRawNotExistingInDBTable("CustomerAndOrderData"+
+                            "raw is not existing in the Database Table for the orderCode of" + orderCode);
+                                //Above exemption message ll help to find the exact error in the DB table.
+                        //2.String cardType -completed-ok
+                    String cardTypePreviousOrder = cardDataRepository.findCardTypeByOrderCode(orderCode);
+                    orderDtoSendingToFE.setCardType(cardTypePreviousOrder);
+                        //3.List<CartItems> cartItems
 
-                        //2.
 
 
+                        //4.Double grandTotal
+                    Double grandTotalPreviousOrder = cartItemsListRepository.findGrandTotalByOrderCode(orderCode) ;
+                    orderDtoSendingToFE.setGrandTotal(grandTotalPreviousOrder);
 
+                        //5.LocalDateTime entityCreatingTime
+                    LocalDateTime entityCreatingTimePreviousOrder = cartItemsListRepository.findLocalDateTimeByOrderCode(orderCode);
+                    orderDtoSendingToFE.setEntityCreatingTime(entityCreatingTimePreviousOrder);
 
 
                     orderDtoSendingToFEListToRelevantOrderCodesList.add(orderDtoSendingToFE);
@@ -244,8 +256,11 @@ public class OrderServiceImpl implements OrderService {
             }else throw new NoPreviousOrders("This existing customer hasn't " +
                                                                             "order anything yet");
 
-        }else{                                                  //released-11.10.check next day by post
-            log.info("INSIDE else--this is service layer");     //released-11.10.check next day by post
+
+
+
+        }else{
+            log.info("INSIDE else--this is service layer");
             throw new EmailNotExisting("Given email is NOT a registered email address");
         }
     }

@@ -3,7 +3,6 @@ package org.example;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-
 //@EnableJpaRepositories
 @SpringBootApplication //(exclude = {DataSourceAutoConfiguration.class})
 
@@ -18,7 +17,10 @@ public class Main {
     //          - multiple selections: use Tuple or array "
 
 }
-//11.15--
+//11.16--
+
+
+//11.15--   --Run the main () at the END -No issues
 //--OrderServiceImpl-previousOrders()--
 //partly completed inside if
 
